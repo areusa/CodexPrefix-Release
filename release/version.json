@@ -1,0 +1,10 @@
+{
+  "name": "CodexPrefix",
+  "version": "0.7.0-rc.1",
+  "platform": "win-x64",
+  "executable": "CodexPrefix.exe",
+  "sha256": "74b911c6785e34b7983640d1a0ed6aee7394868d42d5b08d0c96f4f76cd53c76",
+  "selfTest": "passed",
+  "automationWorkerTest": "passed",
+  "configuration": "系统 LocalApplicationData 下 ./CodexPrefix/emoji-settings.json；发布不覆盖"
+}

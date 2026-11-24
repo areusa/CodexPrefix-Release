@@ -1,0 +1,22 @@
+name: 构建与隔离自检
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+      - name: 构建并运行隔离自检
+        shell: pwsh
+        run: ./scripts/publish.ps1
+      - name: 校验隐私与目录
+        shell: pwsh
+        run: ./scripts/check-privacy.ps1

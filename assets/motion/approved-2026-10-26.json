@@ -1,0 +1,26 @@
+{
+  "version": "wpf-motion-calibration-01",
+  "approvedDate": "2026-10-26",
+  "notes": "用户确认的 HTML 手感；展示单位，时间为秒。仅 mini 使用弹性响应。",
+  "displayParameters": {
+    "actionDelay": 0.085, "buttonDamping": 0.43, "buttonMax": 1.22,
+    "buttonMin": 0.16, "buttonStiffness": 1, "clickStrength": 1.75,
+    "compressGain": 2, "compressLimit": 0.05, "damping": 1.5,
+    "deformStiffness": 3, "delayCap": 0.07, "delayRatio": 0.08,
+    "duration": 0.8, "easePower": 8, "enterLength": 0.35,
+    "enterStart": 0.35, "exitEnd": 0.2, "fullRadius": 14,
+    "hoverDamping": 3, "hoverScale": 1.11, "hoverStiffness": 8,
+    "impulseLimit": 2.85, "internalForceRatio": 0.2, "lag": 0.022,
+    "limitX": 34, "limitY": 2, "miniRadius": 9,
+    "morphCompress": 0.012, "morphDamping": 0.79, "morphGain": 1,
+    "morphStiffness": 1, "morphStretch": 0.035, "morphTimeout": 1.8,
+    "motionBudget": 8, "neighbor": 12, "neighborDamping": 0.6,
+    "neighborLimit": 12, "neighborStiffness": 1, "pointerSpeed": 1.3,
+    "positionStiffness": 0.35, "pressDepth": 0.66,
+    "saturationSpeed": 1.8, "settleAfter": 0.68, "skewGain": 0.6,
+    "skewLimit": 8, "skewStiffness": 5, "stretchGain": 2,
+    "stretchLimit": 0.05, "swipe": 5, "waveDecay": 0.69
+  },
+  "mode": "mini", "reduced": false,
+  "groups": [true, false, false, false, false, true, true, false]
+}

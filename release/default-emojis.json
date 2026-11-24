@@ -1,0 +1,57 @@
+{
+  "SchemaVersion": 1,
+  "UnicodeVersion": "17.0",
+  "Revision": 0,
+  "Items": [
+    {
+      "Id": "default-0",
+      "Token": "✌️"
+    },
+    {
+      "Id": "default-1",
+      "Token": "💦"
+    },
+    {
+      "Id": "default-2",
+      "Token": "❓"
+    },
+    {
+      "Id": "default-3",
+      "Token": "🔎"
+    },
+    {
+      "Id": "default-4",
+      "Token": "📃"
+    },
+    {
+      "Id": "default-5",
+      "Token": "🖥️"
+    },
+    {
+      "Id": "default-6",
+      "Token": "🎨"
+    },
+    {
+      "Id": "default-7",
+      "Token": "♥️"
+    },
+    {
+      "Id": "default-8",
+      "Token": "🎵"
+    }
+  ],
+  "History": [
+    "💦",
+    "💭",
+    "❓",
+    "📄",
+    "✌️",
+    "○",
+    "🔎",
+    "📃",
+    "🖥️",
+    "🎨",
+    "♥️",
+    "🎵"
+  ]
+}

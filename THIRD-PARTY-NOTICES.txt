@@ -1,0 +1,49 @@
+第三方组件许可说明
+
+本版新增 MingCute 2.9.72 图形：pin_fill、pin_2_line、close_line。
+0.3.0 新增官方 MingCute 图形：layout_top、fullscreen_exit、eraser。
+0.3.1 新增同一官方提交的 edit 图形，用于打开原生重命名框的入口。
+来源提交 ca98bb55513a22ff0dab713aaf7870b512944653，原始 SVG 保留在 ./assets/mingcute/bar/；WPF 保留路径与描边，颜色由界面控制。
+项目：https://www.mingcute.com/ ，Apache-2.0 许可。
+原始 SVG 和许可保留在 ./assets/mingcute/；WPF 使用原始主体路径，移除无绘制辅助路径，颜色由界面状态控制。
+完整 Apache-2.0 许可同时嵌入程序，可在「诊断 → 第三方许可」中查看。
+
+本版新增 Vortice.Direct2D1 / DirectX / DXGI 3.8.3、Vortice.Mathematics 2.1.0，MIT 许可。
+Copyright (c) Amer Koleci and Contributors。
+SharpGen.Runtime / SharpGen.Runtime.COM 2.4.2-beta，MIT 许可。
+Copyright (c) 2010-2017 Alexandre Mutel, 2017-2023 Jeremy Koritzinsky, 2023-2024 Amer Koleci。
+以上 MIT 组件适用的授权条款与免责声明全文同下文 MIT 许可文本，仅版权声明不同。
+
+本工具包含 FlaUI.Core / FlaUI.UIA3 5.0.0。
+项目：https://github.com/FlaUI/FlaUI
+以下为原始许可文本，保留英文以避免改变法律含义。
+
+The MIT License (MIT)
+
+Copyright (c) 2016-2024
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+Interop.UIAutomationClient 10.19041.0，MIT License，Copyright (c) 2019 Roman。
+适用的授权条款与免责声明全文同上 MIT 许可文本，仅版权声明不同。
+项目：https://github.com/Roemer/UIAutomation-Interop
+
+程序还包含微软 .NET / Windows Desktop 运行组件。
+对应许可条款：https://github.com/dotnet/runtime/blob/main/LICENSE.TXT
+Interop.UIAutomationClient：https://www.nuget.org/packages/Interop.UIAutomationClient/10.19041.0

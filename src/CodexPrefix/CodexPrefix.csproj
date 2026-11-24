@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AssemblyName>CodexPrefix</AssemblyName>
+    <Version>0.7.0-rc.1</Version>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <Deterministic>true</Deterministic>
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+    <PathMap>$(MSBuildProjectDirectory)=/_/src/CodexPrefix</PathMap>
+    <DebugType Condition="'$(Configuration)' == 'Release'">none</DebugType>
+    <DebugSymbols Condition="'$(Configuration)' == 'Release'">false</DebugSymbols>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>../../assets/app-icon/release-v2/app.ico</ApplicationIcon>
+    <PublishSingleFile>true</PublishSingleFile>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <SelfContained>true</SelfContained>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <RuntimeFrameworkVersion>8.0.32</RuntimeFrameworkVersion>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+  </PropertyGroup>
+  <ItemGroup><Using Remove="System.Windows.Forms"/><Using Remove="System.Drawing"/></ItemGroup>
+  <ItemGroup><PackageReference Include="FlaUI.UIA3" Version="5.0.0" /></ItemGroup>
+  <ItemGroup><PackageReference Include="Vortice.Direct2D1" Version="3.8.3" /></ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="../../assets/defaults/emoji-defaults.json" LogicalName="CodexPrefix.Defaults.emoji-defaults.json"/>
+    <Resource Include="../../assets/app-icon/release-v2/app.ico" Link="assets/app-icon/release-v2/app.ico" />
+    <EmbeddedResource Include="../../assets/motion/approved-2026-10-28.json" LogicalName="CodexPrefix.Motion.Calibration.json" />
+    <EmbeddedResource Include="../../assets/motion/html-reference.json" LogicalName="CodexPrefix.Motion.Reference.json" />
+    <EmbeddedResource Include="../../assets/unicode/17.0/emoji-test.txt" LogicalName="CodexPrefix.Unicode.emoji-test.txt" />
+    <EmbeddedResource Include="../../assets/unicode/17.0/LICENSE.txt" LogicalName="CodexPrefix.Unicode.LICENSE.txt" />
+    <EmbeddedResource Include="../../THIRD-PARTY-NOTICES.txt" LogicalName="CodexPrefix.THIRD-PARTY-NOTICES.txt" />
+    <EmbeddedResource Include="../../assets/mingcute/LICENSE" LogicalName="CodexPrefix.MingCute.LICENSE.txt" />
+    <EmbeddedResource Include="$(NuGetPackageRoot)microsoft.netcore.app.runtime.win-x64/$(RuntimeFrameworkVersion)/LICENSE.TXT" LogicalName="CodexPrefix.Runtime.LICENSE.txt" />
+    <EmbeddedResource Include="$(NuGetPackageRoot)microsoft.netcore.app.runtime.win-x64/$(RuntimeFrameworkVersion)/THIRD-PARTY-NOTICES.TXT" LogicalName="CodexPrefix.Runtime.NOTICES.txt" />
+    <EmbeddedResource Include="$(NuGetPackageRoot)microsoft.windowsdesktop.app.runtime.win-x64/$(RuntimeFrameworkVersion)/LICENSE" LogicalName="CodexPrefix.Desktop.LICENSE.txt" />
+  </ItemGroup>
+</Project>

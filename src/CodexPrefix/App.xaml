@@ -1,0 +1,120 @@
+<Application x:Class="CodexPrefix.App" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:CodexPrefix">
+  <Application.Resources>
+    <!-- ImageSource 的 URI 转换保留 BitmapFrame 与 ICO 解码器，禁止改回只读取首帧的 BitmapImage。 -->
+    <ImageSource x:Key="AppIcon">pack://application:,,,/assets/app-icon/release-v2/app.ico</ImageSource>
+    <Style TargetType="Window"><Setter Property="Icon" Value="{StaticResource AppIcon}"/></Style>
+    <!-- MingCute 2.9.72：保留原始 SVG 于 assets/mingcute；仅转换路径数据和前景色。 -->
+    <Geometry x:Key="PinOnGeometry">M16.735 2.835a2 2 0 0 0-2.615-.186l-2.913 2.185a9 9 0 0 1-4.127 1.71l-2.177.31c-.73.105-1.265.891-.913 1.662.331.723 1.385 2.629 4.36 5.72l-4.178 4.178a1 1 0 1 0 1.414 1.414l4.178-4.178c3.091 2.975 4.997 4.029 5.72 4.36.77.352 1.557-.183 1.661-.913l.311-2.177a9 9 0 0 1 1.71-4.127L21.35 9.88a2 2 0 0 0-.186-2.615z</Geometry>
+    <Geometry x:Key="PinOffGeometry">M8.867 2a2 2 0 0 0-1.98 1.717l-.515 3.605a9 9 0 0 1-1.71 4.128l-1.318 1.758c-.443.59-.265 1.525.528 1.82.746.278 2.839.88 7.128.963V22a1 1 0 1 0 2 0v-6.01c4.29-.082 6.382-.684 7.128-.962.793-.295.97-1.23.528-1.82l-1.319-1.758a9 9 0 0 1-1.71-4.128l-.514-3.605A2 2 0 0 0 15.133 2zm0 2h6.266l.515 3.605c.261 1.83.98 3.565 2.09 5.045l.606.808C17.209 13.71 15.204 14 12 14s-5.21-.29-6.344-.542l.607-.808a11 11 0 0 0 2.09-5.045L8.866 4Z</Geometry>
+    <Geometry x:Key="CloseGeometry">M12 13.414l5.657 5.657a1 1 0 0 0 1.414-1.414L13.414 12l5.657-5.657a1 1 0 0 0-1.414-1.414L12 10.586 6.343 4.929A1 1 0 0 0 4.93 6.343L10.586 12l-5.657 5.657a1 1 0 1 0 1.414 1.414Z</Geometry>
+    <!-- MingCute 官方仓库 ca98bb55513a22ff0dab713aaf7870b512944653；对应原始 SVG 保存在 assets/mingcute/bar。 -->
+    <Geometry x:Key="CompactGeometry">M4 9H20M5 20H19C19.5523 20 20 19.5523 20 19V5C20 4.44772 19.5523 4 19 4H5C4.44772 4 4 4.44772 4 5V19C4 19.5523 4.44772 20 5 20Z</Geometry>
+    <Geometry x:Key="EditGeometry">M20 11V19C20 19.5523 19.5523 20 19 20H5C4.44772 20 4 19.5523 4 19V5C4 4.44772 4.44772 4 5 4H13M20 4L10 14</Geometry>
+    <Geometry x:Key="RestoreGeometry">M8 4L8 7C8 7.55228 7.55228 8 7 8L4 8M8 20L8 17C8 16.4477 7.55228 16 7 16H4M16 4L16 7C16 7.55228 16.4477 8 17 8L20 8M16 20L16 17C16 16.4477 16.4477 16 17 16L20 16</Geometry>
+    <Geometry x:Key="EraserGeometry">M11.0711 20L20.4853 10.5858C20.8758 10.1953 20.8758 9.5621 20.4853 9.17158L14.8284 3.51472C14.4379 3.1242 13.8047 3.1242 13.4142 3.51472L3.51472 13.4142C3.1242 13.8047 3.1242 14.4379 3.51472 14.8284L8.39342 19.7071C8.58096 19.8947 8.83531 20 9.10053 20H11.0711ZM11.0711 20H20.0001M9.8787 7.05022L16.9498 14.1213</Geometry>
+    <Geometry x:Key="SettingsGeometry">M17.947 5.54532C17.9639 5.3768 17.9053 5.20719 17.7755 5.09844C16.9851 4.43638 16.0792 3.90756 15.0925 3.54654C14.9333 3.4883 14.757 3.52249 14.6194 3.62152C13.8577 4.16984 12.9605 4.50113 12 4.50113C11.0395 4.50113 10.1423 4.16984 9.38058 3.62151C9.243 3.52249 9.06666 3.4883 8.90747 3.54654C7.92074 3.90757 7.01487 4.43641 6.22442 5.09851C6.09459 5.20725 6.03608 5.37685 6.05296 5.54536C6.1464 6.47841 5.98457 7.42013 5.50477 8.25117C5.02473 9.08262 4.28962 9.69382 3.43431 10.0794C3.27962 10.1491 3.1618 10.285 3.1328 10.4521C3.0455 10.9554 3 11.473 3 12.0011C3 12.5294 3.0455 13.047 3.13281 13.5502C3.16181 13.7174 3.27962 13.8532 3.43432 13.923C4.28962 14.3085 5.02473 14.9197 5.50477 15.7512C5.98456 16.5822 6.14639 17.5239 6.05296 18.4569C6.03609 18.6255 6.09459 18.7951 6.22442 18.9038C7.01485 19.5659 7.9207 20.0947 8.90739 20.4557C9.06659 20.514 9.24294 20.4798 9.38052 20.3807C10.1423 19.8324 11.0395 19.5011 12 19.5011C12.9605 19.5011 13.8577 19.8324 14.6195 20.3807C14.7571 20.4798 14.9334 20.514 15.0926 20.4557C16.0793 20.0947 16.9851 19.5659 17.7755 18.9039C17.9053 18.7951 17.9638 18.6255 17.947 18.457C17.8535 17.5239 18.0153 16.5822 18.4951 15.7512C18.9752 14.9197 19.7103 14.3085 20.5657 13.9229C20.7204 13.8532 20.8382 13.7174 20.8672 13.5502C20.9545 13.0469 21 12.5294 21 12.0011C21 11.473 20.9545 10.9555 20.8672 10.4523C20.8382 10.2851 20.7204 10.1493 20.5657 10.0795C19.7103 9.69398 18.9752 9.08277 18.4951 8.25129C18.0153 7.42021 17.8535 6.47843 17.947 5.54532Z M15 12.0005C15 13.6574 13.6569 15.0005 12 15.0005C10.3431 15.0005 9 13.6574 9 12.0005C9 10.3437 10.3431 9.00051 12 9.00051C13.6569 9.00051 15 10.3437 15 12.0005Z</Geometry>
+    <Geometry x:Key="CheckGeometry">M3.51442 11.8293L9.17127 17.4862L20.485 6.17248</Geometry>
+    <Geometry x:Key="AddGeometry">M5 12H19M12 19V5</Geometry>
+    <SolidColorBrush x:Key="BackgroundBrush" Color="#141416"/>
+    <SolidColorBrush x:Key="SurfaceBrush" Color="#202024"/>
+    <SolidColorBrush x:Key="BorderBrush" Color="#34343A"/>
+    <SolidColorBrush x:Key="TextBrush" Color="#F4F4F5"/>
+    <Style TargetType="TextBlock"><Setter Property="Foreground" Value="{StaticResource TextBrush}"/></Style>
+    <Style TargetType="ToolTip">
+      <Setter Property="Foreground" Value="{StaticResource TextBrush}"/><Setter Property="Background" Value="#202024"/>
+      <Setter Property="BorderBrush" Value="#34343A"/><Setter Property="Padding" Value="10,7"/>
+      <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="ToolTip">
+        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="7" Padding="{TemplateBinding Padding}"><ContentPresenter/></Border>
+      </ControlTemplate></Setter.Value></Setter>
+    </Style>
+    <Style TargetType="Button">
+      <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+      <Setter Property="Background" Value="{StaticResource SurfaceBrush}"/>
+      <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}"/>
+      <Setter Property="BorderThickness" Value="1"/>
+      <Setter Property="Cursor" Value="Hand"/>
+      <Setter Property="Padding" Value="10,6"/>
+      <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="Button">
+        <Border x:Name="Box" CornerRadius="9" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}" RenderTransformOrigin="0.5,0.5">
+          <Border.RenderTransform><ScaleTransform/></Border.RenderTransform>
+          <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Border>
+        <ControlTemplate.Triggers>
+          <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="Box" Property="Background" Value="#303037"/></Trigger>
+          <Trigger Property="IsKeyboardFocused" Value="True"><Setter TargetName="Box" Property="BorderBrush" Value="#A3E635"/></Trigger>
+          <Trigger Property="IsPressed" Value="True"><Trigger.EnterActions><BeginStoryboard><Storyboard>
+            <DoubleAnimation Storyboard.TargetName="Box" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)" To="0.94" Duration="0:0:0.14"><DoubleAnimation.EasingFunction><CubicEase EasingMode="EaseOut"/></DoubleAnimation.EasingFunction></DoubleAnimation>
+            <DoubleAnimation Storyboard.TargetName="Box" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)" To="0.94" Duration="0:0:0.14"><DoubleAnimation.EasingFunction><CubicEase EasingMode="EaseOut"/></DoubleAnimation.EasingFunction></DoubleAnimation>
+          </Storyboard></BeginStoryboard></Trigger.EnterActions><Trigger.ExitActions><BeginStoryboard><Storyboard>
+            <DoubleAnimation Storyboard.TargetName="Box" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)" To="1" Duration="0:0:0.16"/>
+            <DoubleAnimation Storyboard.TargetName="Box" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)" To="1" Duration="0:0:0.16"/>
+          </Storyboard></BeginStoryboard></Trigger.ExitActions></Trigger>
+          <Trigger Property="IsEnabled" Value="False"><Setter TargetName="Box" Property="Opacity" Value="0.20"/></Trigger>
+        </ControlTemplate.Triggers>
+      </ControlTemplate></Setter.Value></Setter>
+    </Style>
+    <Style TargetType="CheckBox">
+      <Setter Property="Foreground" Value="#55555E"/><Setter Property="Cursor" Value="Hand"/>
+      <!-- 保留键盘与无障碍操作，但不绘制焦点框；置顶状态只由图形和颜色表达。 -->
+      <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+      <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="CheckBox">
+        <Border x:Name="PinBox" CornerRadius="9" Background="Transparent" BorderThickness="0">
+          <Viewbox Width="18" Height="18"><Canvas Width="24" Height="24">
+            <Path x:Name="PinOff" Data="{StaticResource PinOffGeometry}" Fill="{TemplateBinding Foreground}"/>
+            <Path x:Name="PinOn" Data="{StaticResource PinOnGeometry}" Fill="#FFFFFF" Visibility="Collapsed"/>
+          </Canvas></Viewbox>
+        </Border>
+        <ControlTemplate.Triggers>
+          <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="PinBox" Property="Background" Value="#303037"/></Trigger>
+          <Trigger Property="IsPressed" Value="True"><Setter TargetName="PinBox" Property="Background" Value="#3A3A43"/></Trigger>
+          <Trigger Property="IsChecked" Value="True"><Setter TargetName="PinOff" Property="Visibility" Value="Collapsed"/><Setter TargetName="PinOn" Property="Visibility" Value="Visible"/>
+            <Setter Property="ToolTip" Value="置顶已开启 · 点击关闭"/>
+          </Trigger>
+          <Trigger Property="IsChecked" Value="False"><Setter Property="ToolTip" Value="置顶已关闭 · 点击开启"/></Trigger>
+        </ControlTemplate.Triggers>
+      </ControlTemplate></Setter.Value></Setter>
+    </Style>
+    <Style x:Key="DisabledPinStyle" TargetType="CheckBox" BasedOn="{StaticResource {x:Type CheckBox}}">
+      <Style.Triggers><Trigger Property="IsEnabled" Value="False"><Setter Property="Opacity" Value="0.30"/></Trigger></Style.Triggers>
+    </Style>
+    <!-- 小条所有命中区与状态底框共用模板，不继承完整窗口的按压缩放。 -->
+    <Style x:Key="CompactActionButtonStyle" TargetType="Button">
+      <Setter Property="Width" Value="{x:Static local:CompactMetrics.ActionSize}"/><Setter Property="Height" Value="{x:Static local:CompactMetrics.ActionSize}"/>
+      <Setter Property="Margin" Value="0"/><Setter Property="Padding" Value="0"/><Setter Property="BorderThickness" Value="0"/>
+      <Setter Property="HorizontalContentAlignment" Value="Center"/><Setter Property="VerticalContentAlignment" Value="Center"/>
+      <Setter Property="Background" Value="Transparent"/><Setter Property="Foreground" Value="#B7B8C2"/>
+      <Setter Property="Cursor" Value="Hand"/><Setter Property="Focusable" Value="False"/><Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+      <Setter Property="UseLayoutRounding" Value="True"/><Setter Property="SnapsToDevicePixels" Value="False"/>
+      <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="Button">
+        <Grid x:Name="HitFrame">
+          <Border Background="#01000000" CornerRadius="8"/>
+          <Grid x:Name="MotionFace" IsHitTestVisible="False" RenderTransformOrigin="0.5,0.5">
+          <local:SmoothBorder x:Name="BaseFrame" CornerRadius="{x:Static local:CompactMetrics.ButtonRadius}" Background="{TemplateBinding Background}"/>
+          <local:SmoothBorder x:Name="InteractionFrame" CornerRadius="{x:Static local:CompactMetrics.ButtonRadius}" Background="#303037" Opacity="0" IsHitTestVisible="False"/>
+          <ContentPresenter x:Name="GlyphPresenter" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+          </Grid>
+        </Grid>
+        <ControlTemplate.Triggers>
+          <MultiTrigger><MultiTrigger.Conditions><Condition Property="IsEnabled" Value="True"/><Condition Property="IsMouseOver" Value="True"/></MultiTrigger.Conditions>
+            <MultiTrigger.EnterActions><BeginStoryboard><Storyboard><DoubleAnimation Storyboard.TargetName="InteractionFrame" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.14"><DoubleAnimation.EasingFunction><CubicEase EasingMode="EaseOut"/></DoubleAnimation.EasingFunction></DoubleAnimation></Storyboard></BeginStoryboard></MultiTrigger.EnterActions>
+            <MultiTrigger.ExitActions><BeginStoryboard><Storyboard><DoubleAnimation Storyboard.TargetName="InteractionFrame" Storyboard.TargetProperty="Opacity" To="0" Duration="0:0:0.14"><DoubleAnimation.EasingFunction><CubicEase EasingMode="EaseOut"/></DoubleAnimation.EasingFunction></DoubleAnimation></Storyboard></BeginStoryboard></MultiTrigger.ExitActions>
+          </MultiTrigger>
+          <MultiTrigger><MultiTrigger.Conditions><Condition Property="IsEnabled" Value="True"/><Condition Property="IsPressed" Value="True"/></MultiTrigger.Conditions><Setter TargetName="InteractionFrame" Property="Background" Value="#3A3A43"/></MultiTrigger>
+          <!-- 离屏预览使用同一模板和底框，不伪造鼠标输入。 -->
+          <Trigger Property="local:CompactMetrics.PreviewInteraction" Value="Hover"><Setter TargetName="InteractionFrame" Property="Opacity" Value="1"/></Trigger>
+          <Trigger Property="local:CompactMetrics.PreviewInteraction" Value="Pressed"><Setter TargetName="InteractionFrame" Property="Opacity" Value="1"/><Setter TargetName="InteractionFrame" Property="Background" Value="#3A3A43"/></Trigger>
+        </ControlTemplate.Triggers>
+      </ControlTemplate></Setter.Value></Setter>
+      <Style.Triggers><Trigger Property="IsEnabled" Value="False"><Setter Property="Opacity" Value="0.20"/></Trigger></Style.Triggers>
+    </Style>
+    <!-- 受阻只覆盖语义颜色和禁用可见性，不能复制模板或改变几何。 -->
+    <Style x:Key="CompactFeedbackButtonStyle" TargetType="Button" BasedOn="{StaticResource CompactActionButtonStyle}">
+      <Setter Property="Background" Value="#AE2B42"/><Setter Property="Foreground" Value="White"/>
+      <Style.Triggers><Trigger Property="IsEnabled" Value="False"><Setter Property="Opacity" Value="1"/></Trigger></Style.Triggers>
+    </Style>
+      <Geometry x:Key="ProfileSwitchGeometry">M7 6.414L3.413 10L7 13.586V12c.03-.451.288-.844.741-.966L8 11h7V9.207c.044-1.099 1.167-1.865 2.187-1.335c.135.07.262.171.373.274l4.794 4.793c.292.316.451.704.434 1.137c-.015.374-.182.712-.434.984l-4.794 4.793c-.378.35-.857.505-1.368.405c-.71-.139-1.165-.77-1.192-1.465V17h-2.5c-.45-.03-.844-.288-.966-.742a1 1 0 0 1 .1-.758c.186-.323.506-.477.866-.5H16l.259.034c.453.121.711.515.741.966v1.586L20.586 14L17 10.413V12c-.03.45-.288.844-.741.966L16 13H9v1.793c-.044 1.099-1.168 1.864-2.187 1.335a1.8 1.8 0 0 1-.373-.274l-4.794-4.793a1.56 1.56 0 0 1-.434-1.137c.015-.375.182-.712.434-.985l4.793-4.793c.379-.349.858-.504 1.369-.404c.709.139 1.164.769 1.192 1.465V7h2.5c.451.03.844.288.966.741c.068.255.032.531-.1.759c-.186.322-.506.476-.866.5H8l-.259-.034C7.288 8.844 7.03 8.451 7 8Z</Geometry>
+    <Geometry x:Key="BuiltinDefaultGeometry">M20.766 16.012c-.117.765-.576 1.381-1.222 1.787l-6.294 3.634c-.814.43-1.686.43-2.5 0l-6.294-3.634a2.59 2.59 0 0 1-1.25-2.165V8.366c.014-.382.081-.74.248-1.086c.223-.462.572-.809 1.002-1.079l6.294-3.634a2.58 2.58 0 0 1 2.5 0l6.294 3.634c.324.203.6.44.817.758c.288.424.414.9.433 1.407v7.268ZM11 19.268v-6.715l-.25-.12l-5.544-3.198v6.399a.54.54 0 0 0 .25.433ZM6.203 7.501l5.546 3.2a.53.53 0 0 0 .5-.001l5.539-3.203l-5.538-3.198a.53.53 0 0 0-.5 0ZM13 19.268l5.544-3.201a.54.54 0 0 0 .25-.433V9.225l-5.543 3.207l-.251.12Z</Geometry>
+    <Geometry x:Key="RefreshUpdateGeometry">M4.481 14.719c1.373 3.981 5.82 6.148 9.818 4.944a8.06 8.06 0 0 0 4.001-2.731a8 8 0 0 0 .692-1.042c.188-.339.304-.763.649-.99c.632-.414 1.503.025 1.546.78c.023.403-.252.823-.427 1.146a10 10 0 0 1-2.481 2.957c-4.022 3.275-10.078 2.857-13.595-.965a10.2 10.2 0 0 1-2.586-5.408a9 9 0 0 1-.099-1.299c0-.33.12-.636.371-.861c.386-.344.91-.339 1.341-.09l2.677 1.804c.145.113.267.232.356.393c.381.694-.137 1.595-.926 1.615c-.375.01-1.208-.224-1.337-.253m15.038-5.438c-1.373-3.981-5.82-6.147-9.818-4.944A8.06 8.06 0 0 0 5.7 7.068a8 8 0 0 0-.692 1.042c-.188.339-.304.764-.649.99c-.632.414-1.503-.025-1.546-.78c-.023-.402.252-.823.427-1.145a10 10 0 0 1 2.481-2.958c4.022-3.275 10.078-2.856 13.595.965a10.2 10.2 0 0 1 2.586 5.408c.063.418.1.875.099 1.299c0 .33-.12.637-.371.861c-.386.345-.91.339-1.34.09l-2.678-1.804a1.3 1.3 0 0 1-.356-.393c-.381-.694.137-1.594.926-1.615c.375-.01 1.208.225 1.337.253</Geometry>
+    <Geometry x:Key="DownloadUpdateGeometry">M5.006 19.994h13.988l.006-.051V16l.034-.259a1.01 1.01 0 0 1 1.466-.607c.322.186.476.506.5.866v4c-.027.721-.385 1.384-1.024 1.742A2.1 2.1 0 0 1 19 22H5a2.3 2.3 0 0 1-.566-.085C3.575 21.662 3.032 20.878 3 20v-4c.03-.451.288-.844.741-.966c.656-.176 1.217.327 1.259.966v3.943ZM11 13.243V3c.036-.543.428-1 1-1s.964.457 1 1v10.243l2.535-2.536l.208-.159a1.01 1.01 0 0 1 1.466.607c.096.36-.021.695-.259.966l-4.243 4.243c-.204.179-.429.293-.707.293s-.503-.114-.707-.293L7.05 12.121c-.238-.271-.355-.606-.259-.966a1.01 1.01 0 0 1 1.466-.607l.207.159Z</Geometry>
+  </Application.Resources>
+</Application>
